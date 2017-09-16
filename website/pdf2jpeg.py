@@ -2,8 +2,8 @@
 # module PDF_TO_JPEG
 
 from os.path import basename
-import ghostscript
-from pyPdf import PdfFileWriter, PdfFileReader
+#import ghostscript
+#from pyPdf import PdfFileWriter, PdfFileReader
 
 
 def pdf2jpeg(pdf_input_path, jpeg_output_path):

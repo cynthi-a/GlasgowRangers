@@ -1,10 +1,8 @@
-{% extends "base.html" %}    
+{% extends "base.html" %}
 {% block content %}
-{% for post in posts.items %}
-    <h2> {{ post.filename }} </h2>
-    <img src="{{url_for('static', filename=post.filename)}}" alt="test picture"/>
-    <h3> {{ post.keyword }} </h3>
-    {% endfor %}
-    {% if posts.has_prev %}<a href="{{ url_for('index', page=posts.prev_num) }}">&lt;&lt; Newer posts</a>{% else %}&lt;&lt; Newer posts{% endif %} | 
-    {% if posts.has_next %}<a href="{{ url_for('index', page=posts.next_num) }}">Older posts &gt;&gt;</a>{% else %}Older posts &gt;&gt;{% endif %}
+    <div class="background">
+        <div class="caption">
+            <h1>Welcome to the home page of our cool application</h1>
+        </div>
 {% endblock %}
+</div>

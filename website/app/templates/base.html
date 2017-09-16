@@ -1,14 +1,19 @@
 <html>
   <head>
+    <link rel="stylesheet" href="{{ 'static' }}/css/style.css">
     {% if title %}
     <title>{{ title }} - fancy_name </title>
     {% else  %}
-    <title> Welcome to fancy_name </title>
+    <title> Welcome to our awesome speech recognition application </title>
     {% endif %}
   </head>
   <body>
-    <div> fancyname: <a href="/index">Home</a>/<a href="/upload">Upload new file</a></div>
-    <hr>
+    <nav>
+        <ul>
+        <li><a href="/index">Home</a></li>
+        <li><a href="/upload">Upload new file</a></li>
+        </ul>
+    </nav>
     {% block content %}{% endblock %}
   </body>
 </html>

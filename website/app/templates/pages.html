@@ -1,5 +1,11 @@
 {% extends "base.html" %}
 {% block content %}
+ <!-- Add navigation on hover -->
+
+  <div id="mySidenav" class="sidenav">
+    <a href="/index" id="exit">Exit</a>
+  </div>
+
 {% for post in posts.items %}
     <h2> {{ post.filename }} </h2>
     <h2>ID is: {{ post.id }}</h2>

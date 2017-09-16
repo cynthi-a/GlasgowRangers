@@ -19,9 +19,9 @@ div.img img {
 }
 
 /* full with images */
-img {
-    min-height:80%;
-    min-width:80%;
+.pages {
+    min-height:70%;
+    min-width:70%;
     /*height:auto;
     width:auto;
     position:absolute;

@@ -7,11 +7,9 @@
   </div>
 
 {% for post in posts.items %}
-    <h2> {{ post.filename }} </h2>
-    <h2>ID is: {{ post.id }}</h2>
-    <img src="{{url_for('static', filename=post.filename)}}" alt="test picture"/>
-    <h3> {{ post.keyword }} </h3>
+    <p>This is slide: {{ post.id }}</p>
     {% endfor %}
     {% if posts.has_prev %}<a href="{{ url_for('display_pages', page=posts.prev_num) }}">&lt;&lt; Newer posts</a>{% else %}&lt;&lt; Newer posts{% endif %} |
     {% if posts.has_next %}<a href="{{ url_for('display_pages', page=posts.next_num) }}">Older posts &gt;&gt;</a>{% else %}Older posts &gt;&gt;{% endif %}
+    <img src="{{url_for('static', filename=post.filename)}}" alt="test picture"/>
 {% endblock %}

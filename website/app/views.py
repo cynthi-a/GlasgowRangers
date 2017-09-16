@@ -6,11 +6,8 @@ from pdf2jpeg import multiple_pdf2jpeg
 
 @app.route('/')
 @app.route('/index')
-@app.route('/index/<int:page>', methods=['GET','POST'])
-def index(page=1):
-    user = {'nickname': 'Miguel'}  # fake user
-    posts = models.Page.query.paginate(page, 1, False)
-    return render_template('index.html',title='Home',user=user, posts=posts)
+def index():
+    return render_template('index.html',title='Home')
 
 @app.route('/upload',methods=['GET', 'POST'])
 def upload_file():
@@ -39,3 +36,9 @@ def upload_file():
 @app.route('/capture_audio')
 def capture_audio():
     return render_template('capture_audio.html')
+
+@app.route('/pages')
+@app.route('/pages/<int:page>', methods=['GET','POST'])
+def display_pages(page=1):
+    posts = models.Page.query.paginate(page, 1, False)
+    return render_template('pages.html', posts=posts)

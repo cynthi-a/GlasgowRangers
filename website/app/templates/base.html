@@ -1,6 +1,6 @@
 <html>
   <head>
-    <link rel="stylesheet" href="{{ 'static' }}/css/style.css">
+    <link rel="stylesheet" href="/{{ 'static' }}/css/style.css">
     {% if title %}
     <title>{{ title }} - fancy_name </title>
     {% else  %}
@@ -13,6 +13,7 @@
         <li><a href="/index">Home</a></li>
         <li><a href="/upload">Upload new file</a></li>
         <li><a href="/capture_audio">Capture Audio</a></li>
+        <li><a href="/pages">Presentation</a></li>
         </ul>
     </nav>
     {% block content %}{% endblock %}

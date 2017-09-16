@@ -17,6 +17,18 @@ div.img img {
     height: auto;
 }
 
+/* full with images */
+img{
+    min-height:80%;
+    min-width:80%;
+    /*height:auto;
+    width:auto;
+    position:absolute;
+    top:-100%; bottom:-100%;
+    left:-100%; right:-100%;
+    margin:auto;*/
+}
+
 /* full with background on index page */
 .background {
     /* The image used */
@@ -97,6 +109,7 @@ h2 {
     background-color: #fff;
     opacity: 0.6;
     border-radius: 10px;
+    display:inline-block;
 }
 
 /* Style the links inside the sidenav */

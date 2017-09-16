@@ -72,14 +72,6 @@ def display_pages(page=1):
                 return render_template(diplay_pages(id))
     return redirect(url_for('index'))
 
-@app.route('/pages')
-@app.route('/pages/<int:id>', methods=['GET','POST'])
-def display_pages(id=1):
-    posts = models.Page.query.paginate(id, 1, False)
-
-    print unique
-    return render_template('pages.html', posts=posts)
-
 @app.route('/keyword')
 def keyword_entry():
     pages=Page.query.all()

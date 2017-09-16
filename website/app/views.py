@@ -44,30 +44,29 @@ def display_pages(page=1):
     posts = models.Page.query.paginate(page, 1, False)
 
     #CHANGES START
-    modeldir = get_model_path()
+    if page > 1:
+        modeldir = get_model_path()
 
+        config = Decoder.default_config()
+        config.set_string('-hmm', os.path.join(modeldir, 'en-us'))
+        config.set_string('-dict', os.path.join(modeldir, 'cmudict-en-us.dict'))
+        config.set_string('-kws', 'keyphrase.list')
 
-    config = Decoder.default_config()
-    config.set_string('-hmm', os.path.join(modeldir, 'en-us'))
-    config.set_string('-dict', os.path.join(modeldir, 'cmudict-en-us.dict'))
-    config.set_string('-kws', 'keyphrase.list')
+        p = pyaudio.PyAudio()
+        stream = p.open(format=pyaudio.paInt16, channels=1, rate=16000, input=True, frames_per_buffer=1024)
+        stream.start_stream()
 
-    p = pyaudio.PyAudio()
-    stream = p.open(format=pyaudio.paInt16, channels=1, rate=16000, input=True, frames_per_buffer=1024)
-    stream.start_stream()
-
-    decoder = Decoder(config)
-    decoder.start_utt()
-    while True:
-        buf = stream.read(1024)
-        decoder.process_raw(buf, False, False)
-        if decoder.hyp() != None: 
-            print  "==============Keyword: ", decoder.hyp().hypstr
-            #print "Detected keyword", decoder.hyp(), "restarting search"
-            decoder.end_utt()
-            decoder.start_utt()
-            break
+        decoder = Decoder(config)
+        decoder.start_utt()
+        while True:
+            buf = stream.read(1024)
+            decoder.process_raw(buf, False, False)
+            if decoder.hyp() != None: 
+                print  "==============Keyword: ", decoder.hyp().hypstr
+                #print "Detected keyword", decoder.hyp(), "restarting search"
+                decoder.end_utt()
+                decoder.start_utt()
+                break
     #return redirect(url_for('display_pages'))
     #CHANGES END
-
     return render_template('pages.html', posts=posts)

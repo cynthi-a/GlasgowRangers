@@ -19,3 +19,7 @@ http://p-s.co.nz/wordpress/pdf-to-png-using-pythonmagick/
 ghostscript # pdf to jpeg
 pyPdf # loop through pages
 pocketsphinx
+
+
+usermod -a -G audio your_username
+jack_control start

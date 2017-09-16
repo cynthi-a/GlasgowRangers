@@ -78,8 +78,11 @@ def keyword_entry():
     pages=Page.query.all()
 
     if request.method == 'POST':
-
         for page in pages:
+            print request.form
             page.keyword = request.form[str(page.id)]
+            db.session.commit()
+
+            print "KEYWORD= ", page.keyword
 
     return render_template('keyword_mapping.html', pages=pages)

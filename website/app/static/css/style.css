@@ -17,15 +17,13 @@ img{
     margin:auto;
 }
 
-/* full with background on index */
+/* full with background on index page */
 .background {
     /* The image used */
-    background-image: url("https://www.visitscotland.com/cms-images/travel/ashton-lane-sun-glasgow?view=Standard");
+    background-image: url("../berge.jpg");
 
-    /* Full height */
     height: 100%;
 
-    /* Center and scale the image nicely */
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -33,11 +31,31 @@ img{
 
 .caption {
     position: absolute;
-    left: 0;
+    left: 25%;
     top: 50%;
-    width: 100%;
+    width: 70%;
     text-align: center;
     color: #000;
+    background-color: #fff;
+    opacity: 0.6;
+    border-radius: 10px;
+}
+
+.buttons {
+    postion: absolute;
+    margin: 50% 0;
+}
+
+.btn {
+    background-color: white;
+    color: black;
+    border: 2px solid #000;
+    margin-bottom: 10px;
+}
+
+a {
+    color: #000;
+   text-decoration: none;
 }
 
 /*navigation bar */

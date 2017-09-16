@@ -2,6 +2,7 @@
 {% block content %}
 {% for post in posts.items %}
     <h2> {{ post.filename }} </h2>
+    <h2>ID is: {{ post.id }}</h2>
     <img src="{{url_for('static', filename=post.filename)}}" alt="test picture"/>
     <h3> {{ post.keyword }} </h3>
     {% endfor %}

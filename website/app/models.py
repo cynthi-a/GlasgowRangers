@@ -18,5 +18,3 @@ class Page(db.Model):
 
     def __repr__(self):
         return '<Page {} with keyword {}>'.format(self.filename, self.keyword)
-
-

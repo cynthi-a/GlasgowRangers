@@ -6,12 +6,15 @@
     <a href="/index" id="exit">Exit</a>
   </div>
 
-{% for post in posts.items %}
-    <p>This is slide: {{ post.id }}</p>
-    {% endfor %}
-    {% if posts.has_prev %}<a href="{{ url_for('display_pages', page=posts.prev_num) }}">&lt;&lt; Back</a>{% else %}&lt;&lt; Back{% endif %} |
-    {% if posts.has_next %}<a href="{{ url_for('display_pages', page=posts.next_num) }}">Forward &gt;&gt;</a>{% else %}Forward &gt;&gt;{% endif %}
-{% for post in posts.items %}
-    <img src="{{url_for('static', filename=post.filename)}}" alt="test picture"/>
-    {% endfor %}
+  {% if prev_id > 0 %}
+  <a href="{{ url_for('display_pages', page=prev_id) }}">
+    &lt;&lt; Back</a>
+    {% else %}&lt;&lt; Back{% endif %} |
+
+  {% if next_id > 0 %}
+  <a href="{{ url_for('display_pages', page=next_id) }}">
+  Forward &gt;&gt;</a>
+  {% else %}Forward&gt;&gt;{% endif %}
+
+  <img src="{{url_for('static', filename=this_filename)}}" alt="test picture"/>
 {% endblock %}

@@ -4,6 +4,11 @@ from app import app, models, db
 from werkzeug.utils import secure_filename
 from pdf2jpeg import multiple_pdf2jpeg
 
+#new import statements
+import sys, os
+from pocketsphinx import *
+import pyaudio
+
 @app.route('/')
 @app.route('/index')
 def index():
@@ -33,12 +38,36 @@ def upload_file():
             return redirect(url_for('index'))
     return render_template('upload.html')
 
-@app.route('/capture_audio')
-def capture_audio():
-    return render_template('capture_audio.html')
-
 @app.route('/pages')
 @app.route('/pages/<int:page>', methods=['GET','POST'])
 def display_pages(page=1):
     posts = models.Page.query.paginate(page, 1, False)
+
+    #CHANGES START
+    modeldir = get_model_path()
+
+
+    config = Decoder.default_config()
+    config.set_string('-hmm', os.path.join(modeldir, 'en-us'))
+    config.set_string('-dict', os.path.join(modeldir, 'cmudict-en-us.dict'))
+    config.set_string('-kws', 'keyphrase.list')
+
+    p = pyaudio.PyAudio()
+    stream = p.open(format=pyaudio.paInt16, channels=1, rate=16000, input=True, frames_per_buffer=1024)
+    stream.start_stream()
+
+    decoder = Decoder(config)
+    decoder.start_utt()
+    while True:
+        buf = stream.read(1024)
+        decoder.process_raw(buf, False, False)
+        if decoder.hyp() != None: 
+            print  "==============Keyword: ", decoder.hyp().hypstr
+            #print "Detected keyword", decoder.hyp(), "restarting search"
+            decoder.end_utt()
+            decoder.start_utt()
+            break
+    #return redirect(url_for('display_pages'))
+    #CHANGES END
+
     return render_template('pages.html', posts=posts)

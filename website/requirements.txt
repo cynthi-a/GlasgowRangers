@@ -18,3 +18,4 @@ http://p-s.co.nz/wordpress/pdf-to-png-using-pythonmagick/
 ## used:
 ghostscript # pdf to jpeg
 pyPdf # loop through pages
+pocketsphinx

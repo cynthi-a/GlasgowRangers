@@ -31,8 +31,8 @@ img{
 
 .caption {
     position: absolute;
-    left: 25%;
-    top: 50%;
+    left: 20%;
+    top: 40%;
     width: 70%;
     text-align: center;
     color: #000;
@@ -41,9 +41,15 @@ img{
     border-radius: 10px;
 }
 
+.upload {
+    position: absolute;
+    top: 30%;
+    left: 20px;
+    background-color: aliceblue;
+}
+
 .buttons {
     postion: absolute;
-    margin: 50% 0;
 }
 
 .btn {
@@ -81,4 +87,14 @@ li a {
 
 li a:hover {
     background-color: #111;
+}
+
+h2 {
+    font-size: 24px;
+    margin: 0 20px 0 20px;
+    padding-top: 40px;
+    color: #000;
+    background-color: #fff;
+    opacity: 0.6;
+    border-radius: 10px;
 }

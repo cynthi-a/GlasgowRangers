@@ -72,7 +72,7 @@ def display_pages(page=1):
                 return render_template(diplay_pages(id))
     return redirect(url_for('index'))
 
-@app.route('/keyword')
+@app.route('/keyword_mapping')
 def keyword_entry():
     pages=Page.query.all()
-    return render_template('keyword.html', pages=pages)
+    return render_template('keyword_mapping.html', pages=pages)

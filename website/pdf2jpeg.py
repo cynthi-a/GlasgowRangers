@@ -33,4 +33,4 @@ def multiple_pdf2jpeg(pdf_input_path, jpeg_output_path):
 if __name__ == "__main__":
     pdf_input_path = "test/HackZurich2017{}.pdf"
     jpeg_output_path = pdf_input_path.replace('pdf','jpeg')
-    multiple_pdf2jpeg(pdf_input_path, jpeg_output_path) 
+    multiple_pdf2jpeg(pdf_input_path, jpeg_output_path)

@@ -73,6 +73,13 @@ def display_pages(page=1):
     return render_template('pages.html', posts=posts) 
 
 @app.route('/keyword_mapping')
+@app.route('/keyword_mapping', methods=['GET','POST'])
 def keyword_entry():
     pages=Page.query.all()
+
+    if request.method == 'POST':
+
+        for page in pages:
+            page.keyword = request.form[str(page.id)]
+
     return render_template('keyword_mapping.html', pages=pages)

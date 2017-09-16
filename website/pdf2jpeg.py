@@ -18,12 +18,15 @@ def multiple_pdf2jpeg(pdf_input_path, jpeg_output_path):
     print('converting {} to {}'.format(pdf_input_path, jpeg_output_path))
     inputpdf = PdfFileReader(open(pdf_input_path.format(''), "rb"))
 
+    output_names = []
     for i in xrange(inputpdf.numPages):
         output = PdfFileWriter()
         output.addPage(inputpdf.getPage(i))
         with open(pdf_input_path.format(i), "wb") as outputStream:
             output.write(outputStream)
         pdf2jpeg(pdf_input_path.format(i), jpeg_output_path.format(i))
+        output_names.append(jpeg_output_path.format(i))
+    return output_names
 
 if __name__ == "__main__":
     pdf_input_path = "test/HackZurich2017{}.pdf"

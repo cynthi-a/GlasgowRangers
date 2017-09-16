@@ -6,9 +6,10 @@ html, body {
 }
 
 div.img {
+    display: block;
     margin: 5px;
     border: 1px solid #ccc;
-    float: left;
+    /*float: left;*/
     width: 20%;
 }
 
@@ -18,7 +19,7 @@ div.img img {
 }
 
 /* full with images */
-img{
+img {
     min-height:80%;
     min-width:80%;
     /*height:auto;

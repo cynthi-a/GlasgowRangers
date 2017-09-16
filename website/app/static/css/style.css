@@ -13,7 +13,8 @@ div.img {
 }
 
 div.img img {
-    
+    width: 100%;
+    height: auto;
 }
 
 /* full with background on index page */

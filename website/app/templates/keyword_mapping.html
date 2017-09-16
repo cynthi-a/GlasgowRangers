@@ -9,6 +9,10 @@
 <div class="img">
 	<img src="{{url_for('static', filename=page.filename)}}">
 
+	<form action="." method="POST">
+        <input type="text" name="text">
+        <input type="submit" name="my-form" value="Send">
+    </form>
 </div>
 
 

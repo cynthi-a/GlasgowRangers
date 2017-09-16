@@ -1,6 +1,6 @@
 import os
 from flask import render_template, request, redirect, url_for, g
-from app import app, views, models
+from app import app, models
 from werkzeug.utils import secure_filename
 
 @app.route('/')

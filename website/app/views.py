@@ -1,9 +1,10 @@
 import os
+import time
 from flask import render_template, request, redirect, url_for, g
 from app import app, models, db
 from werkzeug.utils import secure_filename
 from pdf2jpeg import multiple_pdf2jpeg
-
+from models import Page
 #new import statements
 import sys, os
 from pocketsphinx import *
@@ -61,12 +62,25 @@ def display_pages(page=1):
         while True:
             buf = stream.read(1024)
             decoder.process_raw(buf, False, False)
-            if decoder.hyp() != None: 
+            if decoder.hyp() != None:
                 print  "==============Keyword: ", decoder.hyp().hypstr
+                page=Page.query.filter(Page.keyword==decoder.hyp().hypstr).one()
+                unique = page.id
                 #print "Detected keyword", decoder.hyp(), "restarting search"
                 decoder.end_utt()
                 decoder.start_utt()
-                break
-    #return redirect(url_for('display_pages'))
-    #CHANGES END
+                return render_template(diplay_pages(id))
+    return redirect(url_for('index'))
+
+@app.route('/pages')
+@app.route('/pages/<int:id>', methods=['GET','POST'])
+def display_pages(id=1):
+    posts = models.Page.query.paginate(id, 1, False)
+
+    print unique
     return render_template('pages.html', posts=posts)
+
+@app.route('/keyword')
+def keyword_entry():
+    pages=Page.query.all()
+    return render_template('keyword.html', pages=pages)

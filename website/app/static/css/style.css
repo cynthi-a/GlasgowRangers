@@ -33,7 +33,7 @@ div.img img {
 /* full with background on index page */
 .background {
     /* The image used */
-    background-image: url("../berge.jpg");
+    background-image: url("../berge.png");
 
     height: 100%;
 
@@ -45,13 +45,26 @@ div.img img {
 .caption {
     position: absolute;
     left: 20%;
-    top: 40%;
-    width: 70%;
+    top: 15%;
+    width: 60%;
     text-align: center;
     color: #000;
     background-color: #fff;
     opacity: 0.6;
     border-radius: 10px;
+}
+
+.intro {
+    position: absolute;
+    left: 20%;
+    top: 40%;
+    width: 60%;
+    text-align: center;
+    color: #000;
+    background-color: #fff;
+    opacity: 0.6;
+    border-radius: 10px;
+    float: left;
 }
 
 .upload {
@@ -153,4 +166,12 @@ h2 {
     right: 0px;
     background-color: darkslategray;
 
+}
+
+/* style images on index page */
+.index-img {
+    position: relative;
+    width: 125px;
+    height: auto;
+    opacity: 0.9;
 }

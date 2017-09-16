@@ -69,8 +69,8 @@ def display_pages(page=1):
                 #print "Detected keyword", decoder.hyp(), "restarting search"
                 decoder.end_utt()
                 decoder.start_utt()
-                return render_template(diplay_pages(id))
-    return redirect(url_for('index'))
+                return render_template(url_for('diplay_pages',page=page+1))
+    return render_template('pages.html', posts=posts) 
 
 @app.route('/keyword')
 def keyword_entry():

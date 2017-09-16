@@ -12,6 +12,6 @@
     {% if posts.has_prev %}<a href="{{ url_for('display_pages', page=posts.prev_num) }}">&lt;&lt; Back</a>{% else %}&lt;&lt; Back{% endif %} |
     {% if posts.has_next %}<a href="{{ url_for('display_pages', page=posts.next_num) }}">Forward &gt;&gt;</a>{% else %}Forward &gt;&gt;{% endif %}
 {% for post in posts.items %}
-    <img src="{{url_for('static', filename=post.filename)}}" alt="test picture"/>
+    <img class="pages" src="{{url_for('static', filename=post.filename)}}" alt="test picture"/>
     {% endfor %}
 {% endblock %}

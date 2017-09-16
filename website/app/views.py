@@ -35,3 +35,7 @@ def upload_file():
             models.create_from_names(output_names)
             return redirect(url_for('index'))
     return render_template('upload.html')
+
+@app.route('/capture_audio')
+def capture_audio():
+    return render_template('capture_audio.html')

@@ -11,7 +11,7 @@ def index(page=1):
     posts = models.Page.query.paginate(page, 1, False)
     return render_template('index.html',title='Home',user=user, posts=posts)
 
-@app.route('/',methods=['GET', 'POST'])
+@app.route('/upload',methods=['GET', 'POST'])
 def upload_file():
     if request.method == 'POST':
         if 'file' not in request.files:
@@ -30,13 +30,4 @@ def upload_file():
             file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
             return redirect(url_for('upload_file',
                                     filename=filename))
-    return '''
-    <!doctype html>
-    <title>Upload new File</title>
-    <h1>Upload new File</h1>
-    <form method=post enctype=multipart/form-data>
-      <p><input type=file name=file>
-         <input type=submit value=Upload>
-    </form>
-    '''
-
+    return render_template('upload.html')

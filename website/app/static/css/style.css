@@ -129,9 +129,27 @@ h2 {
     right: 0; /* On mouse-over, make the elements appear as they should */
 }
 
+#mySidenav-left a:hover {
+    left: 0; /* On mouse-over, make the elements appear as they should */
+}
+
 /* The about link: 20px from the top with a green background */
 #exit {
+    top: 140px;
+    right: 0px;
+    background-color: darkslategray;
+}
+
+#previous{
+    top: 70px;
+    left: 0px;
+    background-color: darkslategray;
+
+}
+
+#next {
     top: 70px;
     right: 0px;
     background-color: darkslategray;
+
 }

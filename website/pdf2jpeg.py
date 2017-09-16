@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 # module PDF_TO_JPEG
 
+from os.path import basename
 import ghostscript
 from pyPdf import PdfFileWriter, PdfFileReader
 
@@ -25,7 +26,8 @@ def multiple_pdf2jpeg(pdf_input_path, jpeg_output_path):
         with open(pdf_input_path.format(i), "wb") as outputStream:
             output.write(outputStream)
         pdf2jpeg(pdf_input_path.format(i), jpeg_output_path.format(i))
-        output_names.append(jpeg_output_path.format(i))
+        jpeg_name = basename(jpeg_output_path.format(i))
+        output_names.append(jpeg_name)
     return output_names
 
 if __name__ == "__main__":

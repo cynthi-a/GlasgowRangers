@@ -1,4 +1,20 @@
+### website stuff
+
+flask
+
 sqlalchemy
 sqlalchemy-migrate
 flask-sqlalchemy 
 
+### pdf-to-png
+
+## not used! too much space! 
+# boost, used by pythonmagick:
+http://www.boost.org/doc/libs/1_65_1/more/getting_started/unix-variants.html
+# pythonmagick:
+http://www.imagemagick.org/download/python/?C=N;O=D
+http://p-s.co.nz/wordpress/pdf-to-png-using-pythonmagick/
+
+## used:
+ghostscript # pdf to jpeg
+pyPdf # loop through pages

@@ -7,19 +7,18 @@ html, body {
 
 div.img {
     display: block;
-    margin: 40px 20px;
-    /*border: 1px solid #ccc; */
+    /*margin: 40px 20px;
+    border: 1px solid #ccc; */
     float: left;
     width: 40%;
     padding-left: 30%;
     padding-right: 30%;
 }
 
-div.keyword_input {
+/*div.keyword_input {
     width: 40%;
     float: right;
-
-}
+} */
 
 div.img img {
     width: 100%;
@@ -198,4 +197,8 @@ h2 {
 
 input#keyword-submit {
     margin-left:50%;
+}
+
+input.keyword-input-field {
+    width: 100%;
 }

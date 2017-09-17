@@ -19,7 +19,9 @@
     </div>
 
   {% if next_id == 1 %}
-  <!-- Cris button  -->
+      <img class="pages" src="../static/startimage.png" alt="test picture"/>
+    <button class="btn"><a href="{{ url_for('display_pages', page=next_id) }}">Start Slide Show</a></button>
+  {% endif %}
     
 
     <img class="pages" src="{{url_for('static', filename=this_filename)}}" alt="test picture"/>

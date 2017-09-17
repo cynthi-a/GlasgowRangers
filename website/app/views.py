@@ -42,6 +42,17 @@ def upload_file():
             return redirect(url_for('index'))
     return render_template('upload.html')
 
+@app.route('/pages')
+def display_first():
+    total_number = len(Page.query.all())
+    next_id = 2
+    prev_id = 0
+    this_page = Page.query.filter_by(id=1).first()
+    #return render_template('pages.html', 
+    #                       this_filename=this_page.filename,
+    #                       next_id=next_id,
+    #                       prev_id=prev_id)
+    return redirect(url_for('display_pages',page=1))
 
 @app.route('/pages/<int:page>', methods=['GET', 'POST'])
 def display_pages(page=1):
@@ -52,7 +63,7 @@ def display_pages(page=1):
     print(next_id, prev_id, total_number)
     print(this_page)
 
-    if page > 1:
+    if page > 0:
         modeldir = get_model_path()
 
         config = Decoder.default_config()
@@ -62,32 +73,38 @@ def display_pages(page=1):
         config.set_string('-kws', 'keyphrase.list')
 
         p = pyaudio.PyAudio()
-        stream = p.open(format=pyaudio.paInt16, channels=1,
-                        rate=16000, input=True, frames_per_buffer=1024)
+        #stream = p.open(format=pyaudio.paInt16, channels=1,
+                        #rate=16000, input=True, frames_per_buffer=1024)
+        stream = p.open(format=pyaudio.paInt16, channels=2,
+                        rate=44100, input=True, frames_per_buffer=1024)
         stream.start_stream()
 
-        #decoder = Decoder(config)
-        #decoder.start_utt()
+        decoder = Decoder(config)
+        decoder.start_utt()
         while True:
             buf = stream.read(1024)
-            #decoder.process_raw(buf, False, False)
-            #if decoder.hyp() != None:
+            decoder.process_raw(buf, False, False)
+            if decoder.hyp() != None:
             #if decoder.hyp() == None:
-            if (1):
-                #  this_key = decoder.hyp().hypstr
-                this_key = this_page.keyword
+            #if (1):
+                this_key = decoder.hyp().hypstr
+                #this_key = this_page.keyword
                 print "=========Keyword=======\n", this_key
                 next_page = Page.query.filter_by(keyword=this_key).first()
-                #decoder.end_utt()
-                #decoder.start_utt()
+                decoder.end_utt()
+                decoder.start_utt()
                 return render_template('pages.html', 
                                        this_filename=next_page.filename, 
                                        next_id=next_id, 
                                        prev_id=prev_id)
-    return render_template('pages.html', 
-                           this_filename=this_page.filename,
-                           next_id=next_id,
-                           prev_id=prev_id)
+    # only called first time
+    this_page = Page.query.filter_by(id=1).first()
+    render_template('pages.html', 
+                   this_filename=this_page.filename,
+                   next_id=next_id,
+                   prev_id=prev_id)
+    if page == 0:
+        return redirect(url_for('display_pages',page=1))
 
 @app.route('/keyword_mapping')
 @app.route('/keyword_mapping', methods=['GET','POST'])

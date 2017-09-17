@@ -6,20 +6,17 @@
     <a href="/index" id="exit">Exit</a>
   </div>
 
-{% for post in posts.items %}
-    <p>This is slide: {{ post.id }}</p>
-    {% endfor %}
-    <div id="mySidenav" class="sidenav">
-    <!--{% if posts.has_prev %}<a id="previous" href="{{ url_for('display_pages', page=posts.prev_num) }}">Previous</a>{% else %}&lt;&lt; Back{% endif %}-->
-    {% if posts.has_next %}<a id="next" href="{{ url_for('display_pages', page=posts.next_num) }}">Next</a>{% endif %}
-     <!--{% if posts.has_prev %}<a href="{{ url_for('display_pages', page=posts.prev_num) }}">&lt;&lt; Back</a>{% else %}&lt;&lt; Back{% endif %} |
-    {% if posts.has_next %}<a href="{{ url_for('display_pages', page=posts.next_num) }}">Forward &gt;&gt;</a>{% else %}Forward &gt;&gt;{% endif %}-->
+    <div id="mySidenav-left" class="sidenav">
+  {% if prev_id > 0 %}
+  <a href="{{ url_for('display_pages', page=prev_id) }}">
+    Back</a>{% endif %}
     </div>
 
-    <div id="mySidenav-left" class="sidenav">
-    {% if posts.has_prev %}<a id="previous" href="{{ url_for('display_pages', page=posts.prev_num) }}">Previous</a>{% endif %}
+    <div id="mySidenav" class="sidenav">
+  {% if next_id > 0 %}
+  <a href="{{ url_for('display_pages', page=next_id) }}">
+  Next</a>{% endif %}
     </div>
-    {% for post in posts.items %}
-    <img class="pages" src="{{url_for('static', filename=post.filename)}}" alt="test picture"/>
-    {% endfor %}
+
+    <img class="pages" src="{{url_for('static', filename=this_filename)}}" alt="test picture"/>
 {% endblock %}

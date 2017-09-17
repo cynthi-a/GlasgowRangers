@@ -7,10 +7,16 @@ html, body {
 
 div.img {
     display: block;
-    margin: 5px;
-    border: 1px solid #ccc;
-    /*float: left;*/
+    margin: 40px 20px;
+    /*border: 1px solid #ccc; */
+    float: left;
     width: 20%;
+}
+
+div.keyword_input {
+    width: 40%;
+    float: right;
+
 }
 
 div.img img {
@@ -174,4 +180,8 @@ h2 {
     width: 125px;
     height: auto;
     opacity: 0.9;
+}
+
+input.keyword {
+    width: 100%;
 }

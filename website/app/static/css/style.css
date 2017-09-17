@@ -2,15 +2,23 @@ html, body {
     font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
     margin:0;
     height:100%;
-    overflow:hidden;
+    /*overflow:hidden;*/
 }
 
 div.img {
     display: block;
-    margin: 5px;
-    border: 1px solid #ccc;
-    /*float: left;*/
-    width: 20%;
+    margin: 40px 20px;
+    /*border: 1px solid #ccc; */
+    float: left;
+    width: 40%;
+    padding-left: 30%;
+    padding-right: 30%;
+}
+
+div.keyword_input {
+    width: 40%;
+    float: right;
+
 }
 
 div.img img {
@@ -135,16 +143,27 @@ h2 {
     width: 100px; /* Set a specific width */
     text-decoration: none; /* Remove underline */
     font-size: 16px; /* Increase font size */
-    color: black; /* White text color */
-    border-radius: 0 5px 5px 0; /* Rounded corners on the top right and bottom right side */
+    color: white; /* White text color */
+}
+
+#mySidenav-left a {
+    position: absolute; /* Position them relative to the browser window */
+    left: -80px; /* Position them outside of the screen */
+    transition: 0.3s; /* Add transition on hover */
+    padding: 15px; /* 15px padding */
+    width: 100px; /* Set a specific width */
+    text-decoration: none; /* Remove underline */
+    font-size: 16px; /* Increase font size */
+    color: white; /* White text color */
+    text-align: right;
 }
 
 #mySidenav a:hover {
-    right: 0; /* On mouse-over, make the elements appear as they should */
+    right: 0;
 }
 
 #mySidenav-left a:hover {
-    left: 0; /* On mouse-over, make the elements appear as they should */
+    left: 0;
 }
 
 /* The about link: 20px from the top with a green background */
@@ -174,4 +193,9 @@ h2 {
     width: 125px;
     height: auto;
     opacity: 0.9;
+}
+
+
+input#keyword-submit {
+    margin-left:50%;
 }

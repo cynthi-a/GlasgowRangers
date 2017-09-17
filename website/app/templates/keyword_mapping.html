@@ -7,11 +7,13 @@
 
 <div class="img">
 	<img src="{{url_for('static', filename=page.filename)}}">
-        <input type="text" name="{{page.id}}">
+</div>
+<div class="keyword_input">
+	<input type="text" name="{{page.id}}">
 </div>
 
 {% endfor %}
-	<input type="submit" name="my-form" value="Send">
+	<input id="keyword-submit" type="submit" name="my-form" value="Send">
 </form>
 {% endif %}
 

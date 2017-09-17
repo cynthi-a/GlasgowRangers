@@ -73,10 +73,10 @@ def display_pages(page=1):
         config.set_string('-kws', 'keyphrase.list')
 
         p = pyaudio.PyAudio()
-        #stream = p.open(format=pyaudio.paInt16, channels=1,
-                        #rate=16000, input=True, frames_per_buffer=1024)
-        stream = p.open(format=pyaudio.paInt16, channels=2,
-                        rate=44100, input=True, frames_per_buffer=1024)
+        stream = p.open(format=pyaudio.paInt16, channels=1,
+                        rate=16000, input=True, frames_per_buffer=1024)
+        #stream = p.open(format=pyaudio.paInt16, channels=2,
+                        #rate=44100, input=True, frames_per_buffer=1024)
         stream.start_stream()
 
         decoder = Decoder(config)

@@ -2,7 +2,7 @@
   <head>
     <link rel="stylesheet" href="/{{ 'static' }}/css/style.css">
     {% if title %}
-    <title>{{ title }} - fancy_name </title>
+    <title>VocaPoint | {{ title }} </title>
     {% else  %}
     <title> Welcome to our awesome speech recognition application </title>
     {% endif %}
@@ -11,8 +11,8 @@
     <nav>
         <ul>
         <li><a href="/index">Home</a></li>
-        <li><a href="/pages/1">Presentation</a></li>
-        <li><a href="/keyword_mapping">Map Keywords to Slides</a></li>
+        <li><a href="/pages/1">Upload</a></li>
+        <li><a href="/keyword_mapping">Set Up</a></li>
         </ul>
     </nav>
     {% block content %}{% endblock %}

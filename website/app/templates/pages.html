@@ -1,7 +1,5 @@
 {% extends "base.html" %}
 {% block content %}
- <!-- Add navigation on hover -->
-
   <div id="mySidenav" class="sidenav">
     <a href="/index" id="exit">Exit</a>
   </div>
@@ -21,7 +19,13 @@
   {% if next_id == 1 %}
   <!-- Cris button  -->
   {% endif %}
-    
 
     <img class="pages" src="{{url_for('static', filename=this_filename)}}" alt="test picture"/>
+  
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script>
+      $(document).ready(function() {
+          window.location.replace("{{ url_for('display_pages',page=1)}}");
+      });
+</script> 
 {% endblock %}

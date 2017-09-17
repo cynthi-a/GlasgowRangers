@@ -11,6 +11,14 @@ import os
 from pocketsphinx import *
 import pyaudio
 
+FORMAT = pyaudio.paInt16
+CHANNELS = 2
+RATE = 44100
+CHUNK = 1024
+RECORD_SECONDS = 2
+WAVE_OUTPUT_FILENAME = "file.wav"
+TOTAL = int(RATE / CHUNK * RECORD_SECONDS)
+
 
 @app.route('/')
 @app.route('/index')
@@ -45,14 +53,13 @@ def upload_file():
 @app.route('/pages')
 def display_first():
     total_number = len(Page.query.all())
-    next_id = 1
+    next_id = 2
     prev_id = 0
     this_page = Page.query.filter_by(id=1).first()
     return render_template('pages.html', 
                            this_filename=this_page.filename,
                            next_id=next_id,
                            prev_id=prev_id)
-
 
 def get_keyword_from_audio():
     modeldir = get_model_path()
@@ -82,19 +89,20 @@ def get_keyword_from_audio():
             return this_key
 
 @app.route('/pages/<int:page>', methods=['GET', 'POST'])
-def display_pages(page=1):
+def display_pages(page):
     print('displaying page',page)
     total_number = len(Page.query.all())
     next_id = page+2 if page < total_number else 0
-    prev_id = page if page > 1 else 0
-    print('previous, current, next:',prev_id, page, next_id)
+    prev_id = page if page > 0 else 0
+    print('previous, next:',prev_id, next_id)
     if page > 0:
-        #this_key = get_keyword_from_audio()
-        raw_input('waiting for keyword from audio. Press any key to continue')
-        this_page = Page.query.filter_by(id=page+1).first()
-        this_key = this_page.keyword
+        this_key = get_keyword_from_audio()
+        #  raw_input('waiting for keyword from audio. Press any key to continue')
+        #  this_page = Page.query.filter_by(id=page+1).first()
+        #  this_key = this_page.keyword
         print "=========Keyword=======\n", this_key
         next_page = Page.query.filter_by(keyword=this_key).first()
+	print('rendering',next_page.filename)
         return render_template('pages.html', 
                                this_filename=next_page.filename, 
                                next_id=next_id, 

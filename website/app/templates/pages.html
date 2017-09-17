@@ -6,15 +6,17 @@
     <a href="/index" id="exit">Exit</a>
   </div>
 
+    <div id="mySidenav-left" class="sidenav">
   {% if prev_id > 0 %}
   <a href="{{ url_for('display_pages', page=prev_id) }}">
-    &lt;&lt; Back</a>
-    {% else %}&lt;&lt; Back{% endif %} |
+    Back</a>{% endif %}
+    </div>
 
+    <div id="mySidenav" class="sidenav">
   {% if next_id > 0 %}
   <a href="{{ url_for('display_pages', page=next_id) }}">
-  Forward &gt;&gt;</a>
-  {% else %}Forward&gt;&gt;{% endif %}
+  Next</a>{% endif %}
+    </div>
 
-  <img src="{{url_for('static', filename=this_filename)}}" alt="test picture"/>
+    <img class="pages" src="{{url_for('static', filename=this_filename)}}" alt="test picture"/>
 {% endblock %}

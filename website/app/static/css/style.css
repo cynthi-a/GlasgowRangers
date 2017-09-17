@@ -5,10 +5,23 @@ html, body {
     overflow:hidden;
 }
 
+div.img {
+    display: block;
+    margin: 5px;
+    border: 1px solid #ccc;
+    /*float: left;*/
+    width: 20%;
+}
+
+div.img img {
+    width: 100%;
+    height: auto;
+}
+
 /* full with images */
-img{
-    min-height:80%;
-    min-width:80%;
+.pages {
+    min-height:70%;
+    min-width:70%;
     /*height:auto;
     width:auto;
     position:absolute;
@@ -20,7 +33,7 @@ img{
 /* full with background on index page */
 .background {
     /* The image used */
-    background-image: url("../berge.jpg");
+    background-image: url("../berge.png");
 
     height: 100%;
 
@@ -32,13 +45,26 @@ img{
 .caption {
     position: absolute;
     left: 20%;
-    top: 40%;
-    width: 70%;
+    top: 15%;
+    width: 60%;
     text-align: center;
     color: #000;
     background-color: #fff;
     opacity: 0.6;
     border-radius: 10px;
+}
+
+.intro {
+    position: absolute;
+    left: 20%;
+    top: 40%;
+    width: 60%;
+    text-align: center;
+    color: #000;
+    background-color: #fff;
+    opacity: 0.6;
+    border-radius: 10px;
+    float: left;
 }
 
 .upload {
@@ -117,9 +143,35 @@ h2 {
     right: 0; /* On mouse-over, make the elements appear as they should */
 }
 
+#mySidenav-left a:hover {
+    left: 0; /* On mouse-over, make the elements appear as they should */
+}
+
 /* The about link: 20px from the top with a green background */
 #exit {
+    top: 140px;
+    right: 0px;
+    background-color: darkslategray;
+}
+
+#previous{
+    top: 70px;
+    left: 0px;
+    background-color: darkslategray;
+
+}
+
+#next {
     top: 70px;
     right: 0px;
     background-color: darkslategray;
+
+}
+
+/* style images on index page */
+.index-img {
+    position: relative;
+    width: 125px;
+    height: auto;
+    opacity: 0.9;
 }

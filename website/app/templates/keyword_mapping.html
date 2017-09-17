@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block content %}
+
+{% if pages %}
+<form method="POST">
+{%for page in pages %}
+
+<div class="img">
+	<img src="{{url_for('static', filename=page.filename)}}">
+        <input type="text" name="{{page.id}}">
+</div>
+
+{% endfor %}
+	<input type="submit" name="my-form" value="Send">
+</form>
+{% endif %}
+
+{%endblock%}

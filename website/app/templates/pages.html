@@ -8,13 +8,13 @@
 
     <div id="mySidenav-left" class="sidenav">
   {% if prev_id > 0 %}
-  <a href="{{ url_for('display_pages', page=prev_id) }}">
+  <a id="previous" href="{{ url_for('display_pages', page=prev_id) }}">
     Back</a>{% endif %}
     </div>
 
     <div id="mySidenav" class="sidenav">
   {% if next_id > 0 %}
-  <a href="{{ url_for('display_pages', page=next_id) }}">
+  <a id="next" href="{{ url_for('display_pages', page=next_id) }}">
   Next</a>{% endif %}
     </div>
 

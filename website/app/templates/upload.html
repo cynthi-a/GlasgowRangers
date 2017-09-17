@@ -4,11 +4,13 @@
 <div class="background">
 <h2>Upload new File</h2>
     <div class="upload">
+        <p>Please upload your presentation. Done that? Awesome. And now the next step is to define the keywords you want to use to switch to the next slide.</p>
         <form method=post enctype=multipart/form-data>
             <input type=file name=file>
             <input type=submit value=Upload>
         </form>
-        <button class="btn"> <a href="/pages/1">Start Presentation</a></button>
+        <button class="btn"><a href="/keyword_mapping">Define keywords</a></button>
+        <!--<button class="btn"> <a href="/pages/1">Start Presentation</a></button>-->
     </div>
 </div>
 {% endblock %}

@@ -79,10 +79,15 @@ def keyword_entry():
 
     if request.method == 'POST':
         for page in pages:
-            print request.form
             page.keyword = request.form[str(page.id)]
             db.session.commit()
 
-            print "KEYWORD= ", page.keyword
+    def addToFile():
+        f=open('keyphrase.list', 'w')
+        for page in Page.query.all():
+            f.write(page.keyword+"/1e-10/\n")
+        f.close()
+
+    addToFile()
 
     return render_template('keyword_mapping.html', pages=pages)

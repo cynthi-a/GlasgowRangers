@@ -202,3 +202,18 @@ h2 {
 input#keyword-submit {
     margin-left:50%;
 }
+
+/* style button on keyword_mapping.html */
+#btn-bottom {
+    width: 200px;
+    margin: 20px;
+    bottom: 10px;
+    left: 300px;
+}
+
+.btn-save {
+    width: 200px;
+    margin: 20px;
+    bottom: 0;
+    left: 40%;
+}

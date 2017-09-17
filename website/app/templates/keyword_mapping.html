@@ -2,6 +2,8 @@
 {% block content %}
 
 {% if pages %}
+    <h2>Please choose Keywords</h2>
+    <p style="margin-left:20px">Choose which keywords should be used to change to the next slide.</p>
 <form method="POST">
 {%for page in pages %}
 
@@ -9,13 +11,15 @@
 	<img src="{{url_for('static', filename=page.filename)}}">
 </div>
 <div class="keyword_input">
+    <label>Keyword: </label>
 	<input type="text" name="{{page.id}}">
 </div>
 
 {% endfor %}
-	<input id="keyword-submit" type="submit" name="my-form" value="Save">
+	<input id="keyword-submit" class="btn-save" type="submit" name="my-form" value="Save">
 </form>
 {% endif %}
-    <button class="btn"><a href="/pages/1">Start Presentation</a></button>
-
+    <div>
+    <button class="btn" id="btn-bottom"><a href="/pages/1">Start Presentation</a></button>
+    </div>
 {%endblock%}

@@ -50,6 +50,7 @@ def display_pages(page=1):
     prev_id = page-1 if page > 1 else 0
     this_page = Page.query.filter_by(id=page).first()
     print(next_id, prev_id, total_number)
+    print(this_page)
 
     if page > 1:
         modeldir = get_model_path()
@@ -74,7 +75,7 @@ def display_pages(page=1):
             #if decoder.hyp() == None:
             if (1):
                 #  this_key = decoder.hyp().hypstr
-                this_key = '3'
+                this_key = this_page.keyword
                 print "=========Keyword=======\n", this_key
                 next_page = Page.query.filter_by(keyword=this_key).first()
                 #decoder.end_utt()

@@ -13,7 +13,7 @@ You need to install a few libraries to get the website running on your computer.
 To see the website locally, run 
 
 ```sh
-$ python2 websiste/run.py
+$ python2 website/run.py
 ```
 
 from this folder, and open a webbrowser at the local link, shown in the response of the above command.
